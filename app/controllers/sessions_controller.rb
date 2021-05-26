@@ -8,4 +8,18 @@ class SessionsController < ApplicationController
         redirect_to "/"
     end
 
+    def new
+    end
+
+    def create
+        user = User.find_by(username:params[:user][:username])
+        if user && user.authenticate(params[:user][:password])
+            session[:user_id] = user.id
+            redirect_to user_path(user) #"/users/#{user.id}"    <---- Long way
+        else
+            flash[:error] = "Incorrect login, try again"
+             redirect_to "/login"
+        end
+    end
+
 end
