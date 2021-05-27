@@ -1,0 +1,14 @@
+<h1> New Comment</h1>
+
+<%= form_for([@card, @comments]) do |f|%>
+
+<% if !@card%>
+<%= f.label :card %>
+<%= f.collection_select :card_id, Card.all, :id, :player_name %>
+<% end %>
+
+<%= f.label :content %>
+<%= f.text_field :content %>
+
+<%= f.submit %>
+<% end  %>
