@@ -7,11 +7,20 @@ class CardsController < ApplicationController
 
     def create
        @card = current_user.cards.build(card_params)
-       if @card.save
+        if @card.save
             redirect_to cards_path
-       else
+        else
             render :new
-       end
+        end
+    end
+
+    def index
+        @cards = Card.all
+    end
+
+    def show
+        @card = Card.find_by_id(params[:id])
+        redirect_to cards_path if !@card
     end
 
 
