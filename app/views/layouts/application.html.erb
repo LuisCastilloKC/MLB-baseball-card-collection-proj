@@ -15,6 +15,7 @@
   <% if logged_in? %>
     <%= link_to "New Card", new_card_path %> |
     <%= link_to " All Card", cards_path %> |
+    <%= link_to " Comments", comments_path %> |
     <%= link_to "log Out", logout_path, method: "delete" %>
     <% else %>
     <%= link_to "Sign Up", signup_path %> |
