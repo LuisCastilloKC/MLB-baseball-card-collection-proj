@@ -2,7 +2,12 @@ class CommentsController < ApplicationController
     before_action :if_not_logged_in_redirect
     
     def index
+        if params[:card_id] && @card = Card.find_by_id(params[:card_id])
+            @comments = @card.comments
+        else
+            @error = "Card doesn't exist" if params[:card_id]
         @comments = Comment.all
+        end
     end
 
     def new
