@@ -11,7 +11,12 @@ class CommentsController < ApplicationController
     end
 
     def new
-        @comment = Comment.new
+        if params[:card_id] && @card = Card.find_by_id(params[:card_id])
+            @comment = @card.comments.build
+        else
+            @error = "Card doesn't exist" if params[:card_id]
+        @comments = Comment.new
+        end
     end
 
     def create

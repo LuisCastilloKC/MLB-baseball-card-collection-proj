@@ -4,6 +4,7 @@
 <div> <%= @card.team_name %></div>
 
 <p> <%= link_to 'See all comments', card_comments_path(@card) %></p>
+<p> <%= link_to 'New comments', new_card_comment_path(@card) %></p>
 
 <h4>Comments:</h4>
 <% @card.comments.each do |c| %>
