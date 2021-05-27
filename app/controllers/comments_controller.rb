@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+    before_action :if_not_logged_in_redirect
+    
     def index
         @comments = Comment.all
     end
@@ -25,6 +27,9 @@ class CommentsController < ApplicationController
     end
 
     def update
+       # @comment = Comment.find_by(id: params[:id])
+        #if @comment.update(comment_params)
+         #   redirect_to comment_path(@comment)
     end
     
 end
