@@ -1,1 +1,17 @@
 <h1>This is the Card new</h1>
+
+<%= form_for(@card) do |f| %>
+
+    <%= f.label :player_name %>
+    <%= f.text_field :player_name %>
+
+    <%= f.label :team_name %>
+    <%= f.text_field :team_name %>
+    
+    <%= f.label :year %>
+    <%= f.date_field :year %>
+    
+    <%= f.submit "New Card" %>
+   
+
+<% end %>
