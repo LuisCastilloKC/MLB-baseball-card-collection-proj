@@ -1,1 +1,11 @@
-<h1>This is the show page</h1>
+<h1><%= @card.player_name %></h1>
+<h2>By User: <%= @card.user.username %></h2>
+
+<div> <%= @card.team_name %></div>
+
+<p> <%= link_to 'See all comments', card_comments_path(@card) %></p>
+
+<h4>Comments:</h4>
+<% @card.comments.each do |c| %>
+    <li><strong> <%= c.user.username%></strong> say "<%= link_to c.content, comment_path(c)%>" </li>
+<% end %>
