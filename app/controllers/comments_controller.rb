@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
             @comment = @card.comments.build
         else
             @error = "Card doesn't exist" if params[:card_id]
-        @comments = Comment.new
+        @comment = Comment.new
         end
     end
 
@@ -37,9 +37,16 @@ class CommentsController < ApplicationController
     end
 
     def update
-       # @comment = Comment.find_by(id: params[:id])
-        #if @comment.update(comment_params)
-         #   redirect_to comment_path(@comment)
+        @comment = Comment.find_by(id: params[:id])
+        if @comment.update(comment_params)
+            redirect_to comment_path(@comment)
+        else
+            render :edit
+        end
     end
     
+    def comment_params
+        params.require(:comment).permit(:content, :card_id)
+    end
+
 end
