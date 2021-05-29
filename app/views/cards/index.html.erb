@@ -1,2 +1,7 @@
 <h1> This is the Card Index</h1>
 
+<ul>
+    <% @cards.each do |c| %>
+    <li><%= link_to c.player_name, card_path(c) %></li>
+    <% end %>
+</ul>
