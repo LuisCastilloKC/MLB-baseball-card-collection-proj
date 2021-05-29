@@ -22,4 +22,8 @@ class SessionsController < ApplicationController
         end
     end
 
+    def google
+        
+    end
+
 end
