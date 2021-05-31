@@ -10,6 +10,13 @@
     
     <%= f.label :year %>
     <%= f.date_field :year %>
+
+<-- <% if @card.image.attached? %>
+<%= image_tag @card.image, style: "width: 200px: display: block" %>
+<% end %>
+<%= f.label :image %>
+<%= f.file_field :image, class: "form-control" %>
+--->
     
     <%= f.submit "New Card" %>
    
