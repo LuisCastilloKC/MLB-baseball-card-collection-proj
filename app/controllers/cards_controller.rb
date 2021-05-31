@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
     before_action :if_not_logged_in_redirect
-
+   
     def new 
         @card = Card.new
     end
@@ -12,10 +12,6 @@ class CardsController < ApplicationController
         else
             render :new
         end
-    end
-
-    def index
-        @cards = Card.all
     end
 
     def show

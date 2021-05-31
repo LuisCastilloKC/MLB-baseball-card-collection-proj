@@ -1,8 +1,8 @@
-<h1><%= @card.player_name %></h1>
+<h1>Card Name: <%= @card.player_name %></h1>
 <h2>By User: <%= @card.user.username %></h2>
 
-<div> <%= @card.team_name %></div>
-<div> <%= @card.year %></div>
+<div> Team Name: <%= @card.team_name %></div>
+<div> Year of Issue: <%= @card.year %></div>
 
 <p> <%= link_to 'See all comments', card_comments_path(@card) %> | <%= link_to 'New comments', new_card_comment_path(@card) %></p>
 
