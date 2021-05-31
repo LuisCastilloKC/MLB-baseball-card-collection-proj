@@ -1,12 +1,13 @@
-<% if @user %>
-<h1><%= @user.username %>'s Cards:</h1>
-<% else %>
-<h1> All Cards </h1>
-<% end %>
-<h1> This is the Card Index</h1>
+<h1><%= display_index_helper %></h1>
 
+<% if @cards.empty? %>
+
+<h2>No cards yet. Create a card <%= link_to "here", new_card_path %></h2>
+
+<% else %>
 <ul>
     <% @cards.each do |c| %>
     <li><%= link_to c.player_name, card_path(c) %></li>
     <% end %>
 </ul>
+<% end %>
