@@ -5,6 +5,10 @@
 <div> Team Name: <%= @card.team_name %></div>
 <div> Year of Issue: <%= @card.year %></div>
 
+<% if @card.user == current_user %>
+<h4> <%= link_to "Edit Card", edit_card_path(@card) %></h4>
+<% end %>
+
 <p> <%= link_to 'See all comments', card_comments_path(@card) %> | <%= link_to 'New comments', new_card_comment_path(@card) %></p>
 
 <h4>Comments:</h4>
