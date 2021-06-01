@@ -23,6 +23,11 @@ class CardsController < ApplicationController
         end
     end
 
+    def edit
+        @card = Card.find_by_id(params[:id])
+        redirect_to cards_path if !@card || @card.user != current_user
+    end
+
     def show
         @card = Card.find_by_id(params[:id])
         redirect_to cards_path if !@card
