@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #resources :descriptions
   resources :comments
   resources :users do
-    resources :cards, only: [:new, :create, :index, :edit, :update]
+    resources :cards, only: [:new, :create, :index, :edit, :update, :destroy]
   end
   resources :cards do
     resources :comments

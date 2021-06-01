@@ -6,12 +6,13 @@
 <div> Year of Issue: <%= @card.year %></div>
 
 <% if @card.user == current_user %>
-<h4> <%= link_to "Edit Card", edit_card_path(@card) %></h4>
+<h4> <%= link_to "Edit Card", edit_card_path(@card) %> |
+ <%= link_to "Delete Card", card_path(@card), method: :delete %></h4>
 <% end %>
 
 <p> <%= link_to 'See all comments', card_comments_path(@card) %> | <%= link_to 'New comments', new_card_comment_path(@card) %></p>
 
 <h4>Comments:</h4>
 <% @card.comments.each do |c| %>
-    <li><strong> <%= c.user.username%></strong> say "<%= link_to c.content, card_comment_path(@card, c)%>" </li>
+    <li><strong> <%= c.user.username%></strong> say: "<%= link_to c.content, card_comment_path(@card, c)%>" </li>
 <% end %>
