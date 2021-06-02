@@ -3,4 +3,7 @@ class Card < ApplicationRecord
   has_many :comments, dependent: :delete_all
   has_many :users, through: :comments
   has_one_attached :image, :dependent => :destroy
+
+  scope :alpha, -> { order(:year)}
+
 end

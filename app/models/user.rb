@@ -4,4 +4,5 @@ class User < ApplicationRecord
     has_many :comments
     has_many :descriptions, through: :cards
 
+    
 end

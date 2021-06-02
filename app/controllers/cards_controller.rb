@@ -3,9 +3,10 @@ class CardsController < ApplicationController
    
     def index
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
-        @cards = @user.cards
+        @cards = @user.cards.alpha
       else
-        @cards = Card.includes(:user)
+        @error = "That user doesn't exist" if params[:user_id]
+        @cards = Card.includes(:user).alpha
       end
     end
     
