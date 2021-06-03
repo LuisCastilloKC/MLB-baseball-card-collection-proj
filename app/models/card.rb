@@ -4,7 +4,7 @@ class Card < ApplicationRecord
   has_many :users, through: :comments
   has_one_attached :image, :dependent => :destroy
 
-  validates :player_name, :team_name, :year, presence: true
+  validates :player_name, :team_name, :year, :image, presence: true
   scope :alpha, -> { order(:year)}
 
 end

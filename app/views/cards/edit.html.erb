@@ -1,5 +1,7 @@
 <h1>Edit</h1>
 
+<%= render partial: "layouts/errors", locals: {msg_error: @card} %>
+
 <%= form_for(@card) do |f| %>
 
     <%= f.label :player_name %>

@@ -1,16 +1,6 @@
 <h1>This is the Card new</h1>
 
-<% if @card.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
-
-    <ul>
-      <% @card.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {msg_error: @card} %>
 
 <%= form_for(@card) do |f| %>
 
