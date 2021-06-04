@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     def show
         if_not_logged_in_redirect
         @user = User.find_by(id: params[:id])
+        #@comments = @user.commented_cards
         #@user = User.includes(cards:).find_by_id(params[:id])
         redirect_to '/' if !@user
     end

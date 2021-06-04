@@ -1,3 +1,17 @@
 <h1>Welcome <%= @user.username %> </h1>
 
-<%= %>
+<%@user.commented_cards.uniq.each do |cc|%>
+<li> <%= link_to cc.player_name, cc %> </li>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
