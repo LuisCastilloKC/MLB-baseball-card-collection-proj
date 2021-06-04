@@ -26,12 +26,12 @@ class CardsController < ApplicationController
 
     def edit
         @card = Card.find_by_id(params[:id])
-        redirect_to cards_path if !@card || @card.user != current_user
+        redirect_to cards_path if !@card || @card.user  != current_user
     end
 
     def update
         @card = Card.find_by(id: params[:id])
-        redirect_to cards_path if !@card || @card.user != current_user
+        redirect_to cards_path  if !@card || @card.user != current_user
         if @card.update(card_params)
             redirect_to card_path(@card)
         else
