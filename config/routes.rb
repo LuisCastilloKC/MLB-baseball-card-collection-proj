@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   
   get "/auth/:provider/callback", to: 'sessions#google'
 
-  #resources :descriptions
   resources :comments
   resources :users do
     resources :cards, only: [:new, :create, :index, :edit, :update, :destroy]
