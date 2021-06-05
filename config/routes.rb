@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
 
   delete '/logout' => 'sessions#destroy'
-
+  get 'cards/most_commented' => 'cards#most_commented'
   
   get "/auth/:provider/callback", to: 'sessions#google'
 

@@ -5,6 +5,7 @@ class Card < ApplicationRecord
   has_one_attached :image, :dependent => :destroy
 
   validates :player_name, :team_name, :year, :image, presence: true
-  scope :alpha, -> { order(:year)}
+  #scope :alpha, -> { order(:year)}
+  scope :most_comments, -> {left_joins(:comments).group('cards.id').order('count(comments.card_id) desc')}
 
 end

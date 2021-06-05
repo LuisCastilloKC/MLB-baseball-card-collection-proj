@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username:params[:username].downcase)
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to user_path(user), notice: "Logged in successfull" #"/users/#{user.id}"    <---- Long way
+            redirect_to user_path(user) #"/users/#{user.id}"    <---- Long way
         else
             flash[:error] = "Incorrect login, try again"
             redirect_to "/login"

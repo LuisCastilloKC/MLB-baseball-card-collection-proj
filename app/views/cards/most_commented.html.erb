@@ -1,0 +1,5 @@
+<ul>
+    <% @most_commented_card.each do |c| %>
+    <li><%= link_to c.player_name, card_path(c) %> - <%= c.comments.size %></li>
+    <% end %>
+</ul>

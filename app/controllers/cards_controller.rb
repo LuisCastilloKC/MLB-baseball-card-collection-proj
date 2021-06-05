@@ -3,10 +3,10 @@ class CardsController < ApplicationController
    
     def index
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
-        @cards = @user.cards.alpha
+        @cards = @user.cards.most_comments #.alpha
       else
         @error = "That user doesn't exist" if params[:user_id]
-        @cards = Card.includes(:user).alpha
+        @cards = Card.includes(:user).most_comments # .alpha
       end
     end
     
@@ -50,6 +50,9 @@ class CardsController < ApplicationController
         redirect_to cards_path
     end
 
+    def most_commented
+        @most_commented_card = Card.most_comments
+    end
 
     private
 
