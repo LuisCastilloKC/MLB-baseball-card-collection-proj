@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_221448) do
+ActiveRecord::Schema.define(version: 2021_06_05_022645) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,12 +59,6 @@ ActiveRecord::Schema.define(version: 2021_05_31_221448) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["card_id"], name: "index_comments_on_card_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "descriptions", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
