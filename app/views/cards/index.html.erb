@@ -5,10 +5,7 @@
 <h2>No cards yet. Create a card <%= link_to "here", new_card_path %></h2>
 
 <% else %>
-<ul>
-    <% @cards.each do |c| %>
-    <%= image_tag c.image, style: "width: 250px; display: block" %>
-    <li><%= link_to c.player_name, card_path(c) %> - <%= c.comments.size %></li>
-    <% end %>
-</ul>
+
+<%= render partial: "cards", locals: {cards: @cards} %>
+
 <% end %>
