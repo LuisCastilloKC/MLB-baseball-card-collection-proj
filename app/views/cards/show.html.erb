@@ -1,7 +1,7 @@
 <h1>Card Name: <%= @card.player_name %></h1>
 <h2>By User: <%= @card.user.username %></h2>
 
-<div>  <%= image_tag @card.image %></div>
+<div>  <%= image_tag @card.image, style: "width: 250px; display: block" %></div>
 <div> Team Name: <%= @card.team_name %></div>
 <div> Year of Issue: <%= @card.year %></div>
 
