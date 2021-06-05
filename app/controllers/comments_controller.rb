@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
     before_action :if_not_logged_in_redirect
+    before_action :set_comment, only: [:show, :edit, :update]
+    before_action :redirect_if_not_authorized, only: [:edit, :update]
     
     def index
         if params[:card_id] && @card = Card.find_by_id(params[:card_id])
@@ -29,15 +31,16 @@ class CommentsController < ApplicationController
     end
 
     def show
-        @comment = Comment.find_by(id: params[:id])
+        set_comment
     end
 
     def edit
-        @comment = Comment.find_by(id: params[:id])
+        set_comment
+        redirect_to comments_path if !@comment || @comment.user != current_user
     end
 
     def update
-        @comment = Comment.find_by(id: params[:id])
+        set_comment
         if @comment.update(comment_params)
             redirect_to comment_path(@comment)
         else
@@ -47,6 +50,18 @@ class CommentsController < ApplicationController
     
     def comment_params
         params.require(:comment).permit(:content, :card_id)
+    end
+
+    def set_comment
+        @comment = Comment.find_by(id: params[:id])
+        if !@comment 
+            flash[:msg] = "Comment was not found"
+            redirect_to comments_path
+        end
+    end
+
+    def redirect_if_not_authorized
+        redirect_to comments_path if @comment.user != current_user
     end
 
 end
