@@ -1,5 +1,11 @@
+<% if @card %>
+<h1> Comments for <%= @card.player_name %> </h1>
+<% else %>
+<h1>All Comments</h1>
+<% end %>
+
 <ul>
     <% @comments.each do |c| %>
-    <li><%= link_to c.content, comment_path(c) %></li>
+    <li><%= c.user.username %> say "<%= c.content%>" for card: <strong> <%= link_to c.card.player_name, card_path(c.card_id) %></strong> </li>
     <% end %>
 </ul>
