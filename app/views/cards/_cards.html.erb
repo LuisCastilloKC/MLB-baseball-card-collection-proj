@@ -1,6 +1,9 @@
-<ul>
-    <% cards.each do |c| %>
-    <%= image_tag c.image, style: "width: 250px; display: block" %>
-    <li><%= link_to c.player_name, card_path(c) %> - <%= c.comments.size %></li>
-    <% end %>
-</ul>
+
+<% cards.each do |c| %>
+<div class="card" style="width: 18rem;">
+  <%= image_tag c.image %>
+  <div class="card-body">
+  <%= link_to c.player_name, card_path(c) %> - <%= c.comments.size %>
+  </div>
+</div> 
+<% end %>
