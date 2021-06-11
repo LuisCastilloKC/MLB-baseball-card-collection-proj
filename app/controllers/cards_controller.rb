@@ -3,10 +3,14 @@ class CardsController < ApplicationController
    
     def index
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
-        @cards = @user.cards.most_comments #.alpha
+        if @user == current_user
+        @cards = @user.cards.most_comments 
       else
-        @error = "That user doesn't exist" if params[:user_id]
-        @cards = Card.includes(:user).most_comments # .alpha
+        flash[:message] = "You are Not Authorize to this page"
+        redirect_to user_cards_path(current_user)
+        end
+    else
+        @cards = Card.most_comments 
       end
     end
     

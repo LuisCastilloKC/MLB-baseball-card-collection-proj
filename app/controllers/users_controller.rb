@@ -15,9 +15,11 @@ class UsersController < ApplicationController
     end
 
     def show
-        if_not_logged_in_redirect
-        @user = User.find_by(id: params[:id])
-        redirect_to '/' if !@user
+        @user = User.find_by_id(params[:id])
+        if @user != current_user
+            flash[:message] = "You are not authorize to this user"
+            redirect_to user_path(current_user)
+        end
     end
 
     private
