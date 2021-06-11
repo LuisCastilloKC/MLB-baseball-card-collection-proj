@@ -51,6 +51,7 @@ class CardsController < ApplicationController
     def destroy
         @card = Card.find(params[:id])
         @card.destroy
+        flash[:message] = "Card succefully deleted"
         redirect_to cards_path
     end
 
