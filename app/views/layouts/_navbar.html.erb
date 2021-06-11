@@ -19,6 +19,9 @@
                 <%= link_to " New Comments", new_comment_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
+                <%= link_to " Most Comments Card", cards_most_commented_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
                 <%= link_to "log Out", logout_path, method: "delete", class: "nav-link"%>
             </li>
             <% else %>
