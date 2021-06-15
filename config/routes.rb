@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
+  get 'cards/yankees' => 'cards#yankees'
+
   delete '/logout' => 'sessions#destroy'
   get 'cards/most_commented' => 'cards#most_commented'
   

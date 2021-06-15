@@ -59,9 +59,14 @@ class CardsController < ApplicationController
         @most_commented_card = Card.most_comments
     end
 
+    def yankees
+        @cards = Card.where({team_name:"Yankees"})
+    end
+
     private
 
     def card_params
         params.require(:card).permit(:player_name, :team_name, :year, :image)
     end
 end
+

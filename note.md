@@ -1,0 +1,1 @@
+get 'cards/yankees' => list of the card of team name yankees

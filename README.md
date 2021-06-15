@@ -1,4 +1,4 @@
-# README
+
 
 # MLB Baseball Collection Cards
 
